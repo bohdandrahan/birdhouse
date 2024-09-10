@@ -1,3 +1,3 @@
 # birdhouse
-<img src="image_url" alt="description" width="300" />
+<img src="images/birdhouse.jpg" alt="photo of birdhouse taken from my window" width="300" />
 
