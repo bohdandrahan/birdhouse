@@ -52,8 +52,19 @@ footer {
 	margin: 3px;
 }
 
+
 #contact {
 	background: lightsalmon;
+}
+
+#contact-wrapper {
+	margin: 10px;
+	background: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	text-align: center;
 }
 
 #copyright {
