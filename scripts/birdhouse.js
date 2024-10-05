@@ -36,15 +36,19 @@ function draw() {
 
     orbitControl(3, 3, 1);
     background(200)
-    draw_debug()
+    //draw_debug()
 
     draw_bottom();
     draw_front_wall();
     draw_back_wall();
     draw_right_wall()
     draw_left_wall()
-    draw_right_foof()
-    draw_left_foof()
+    draw_right_roof()
+    draw_left_roof()
+    draw_front_gable()
+    draw_back_gable()
+    draw_hole()
+    draw_perch()
 }
 
 function draw_bottom() {
@@ -67,14 +71,17 @@ function draw_right_wall() {
     translate(350 * unit, 250 * unit, 0)
     box(100 * unit, 600 * unit, 700 * unit, 0, 0)
     translate(- 350 * unit, - 250 * unit, 0)
+
 }
 
 function draw_left_wall() {
     translate(-350 * unit, 250 * unit, 0)
+    fill('black')
     box(100 * unit, 600 * unit, 700 * unit, 0, 0)
+    normalMaterial()
     translate(350 * unit, - 250 * unit, 0)
 }
-function draw_left_foof() {
+function draw_left_roof() {
     rotate(QUARTER_PI);
     translate(-350 * unit, 0, 0)
     normalMaterial()
@@ -83,13 +90,64 @@ function draw_left_foof() {
     rotate(-QUARTER_PI);
 }
 
-function draw_right_foof() {
+function draw_right_roof() {
     rotate(-QUARTER_PI);
     translate(350 * unit, 50 * unit, 0)
     fill('black')
     box(100 * unit, 700 * unit, 880 * unit, 0, 0)
     translate(-350 * unit, -50 * unit, 0)
     rotate(QUARTER_PI);
+}
+function draw_front_gable() {
+    beginGeometry()
+
+    normalMaterial()
+    translate(0, -24, 350 * unit)
+    triangle(-375 * unit, 0, 375 * unit, 0, 0, -375 * unit,)
+    translate(0, 0, -100 * unit)
+
+    triangle(-375 * unit, 0, 375 * unit, 0, 0, -375 * unit,)
+    translate(0, 0, +100 * unit)
+    translate(0, 24, -350 * unit)
+
+    front_gable = endGeometry()
+
+    model(front_gable);
+}
+
+function draw_hole() {
+    translate(0, 0, 301 * unit)
+
+    rotate(HALF_PI, [1, 0, 0])
+    fill('black')
+    cylinder(105 * unit, 100 * unit);
+    normalMaterial()
+    rotate(-HALF_PI, [1, 0, 0])
+    translate(0, 0, -301 * unit)
+}
+function draw_perch() {
+    translate(0, 100, 410 * unit)
+
+    rotate(HALF_PI, [1, 0, 0])
+    cylinder(25 * unit, 150 * unit);
+    rotate(-HALF_PI, [1, 0, 0])
+    translate(0, -100, -410 * unit)
+}
+
+function draw_back_gable() {
+    beginGeometry()
+
+    normalMaterial()
+    translate(0, -24, -350 * unit)
+    triangle(-375 * unit, 0, 375 * unit, 0, 0, -375 * unit,)
+    translate(0, 0, 100 * unit)
+
+    triangle(-375 * unit, 0, 375 * unit, 0, 0, -375 * unit,)
+    translate(0, 0, -100 * unit)
+    translate(0, 24, +350 * unit)
+
+    front_gable = endGeometry()
+    model(front_gable);
 }
 
 function draw_debug() {
