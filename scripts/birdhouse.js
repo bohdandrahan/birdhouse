@@ -8,7 +8,7 @@ let pixel_fracture = 1000; // divide window size on this var to get one unit of 
 let unit;
 
 function preload() {
-    font = loadFont('/assets/inconsolata.otf');
+    font = loadFont('./assets/Asap-Regular.otf');
 }
 
 function setup() {
