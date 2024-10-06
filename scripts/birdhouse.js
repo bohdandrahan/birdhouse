@@ -41,6 +41,7 @@ function setup() {
     translate(0, 0, 0)
     textFont(font);
     textSize(36);
+
 }
 function toggleMusic() {
     console.log(musicOn)
@@ -57,13 +58,12 @@ function draw() {
 
 
     orbitControl(1, 1, 1);
-    console.log(get_time_cycle(10))
     background(get_time_cycle(10) * 150 / 2)
     //draw_debug()
     let camX = 5000 * unit * cos(angle);
-    let camY = 100; // Fixed height for the camera
+    let camY = cam.eyeY; // Fixed height for the camera
     let camZ = 5000 * unit * sin(angle);
-    angle += 0.01;
+    angle += 0.006;
 
     // Set the camera position and target
     cam.setPosition(camX, camY, camZ);
@@ -85,7 +85,7 @@ function draw() {
 }
 
 function get_time_cycle(period = 1) {
-    return sin(frameCount / 60 * 2 * PI / period) + 1;
+    return sin(0.5 * frameCount / 60 * 2 * PI / period) + 1;
 }
 
 function get_time_cycle_minus(period = 1) {
@@ -122,7 +122,8 @@ function draw_left_wall() {
     box(100 * unit, 600 * unit, 700 * unit, 0, 0)
     strokeWeight(2)
     stroke('black')
-    normalMaterial()
+
+    normalMaterial();
     translate(350 * unit + 150 * unit * get_time_cycle(3), - 250 * unit, 0)
 }
 function draw_left_roof() {
@@ -149,7 +150,6 @@ function draw_right_roof() {
 }
 function draw_front_gable() {
     beginGeometry()
-
     normalMaterial()
     translate(0, -50 * unit, 350 * unit + 200 * unit * get_time_cycle(6))
     triangle(375 * unit, 0, -375 * unit, 0, 0, -375 * unit,)
@@ -168,6 +168,7 @@ function draw_back_gable() {
     beginGeometry()
 
     normalMaterial()
+
     translate(0, -50 * unit, -350 * unit - 250 * unit * get_time_cycle(3))
     triangle(-375 * unit, 0, 375 * unit, 0, 0, -375 * unit)
     translate(0, 0, 100 * unit + 100 * unit * get_time_cycle(3))
@@ -228,6 +229,5 @@ function draw_debug() {
     fill('blue')
     text('earth - z axis', 0, 0);
 
-    normalMaterial();
     translate(0, 0, -500 * unit)
 }

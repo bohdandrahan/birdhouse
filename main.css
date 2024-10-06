@@ -2,6 +2,7 @@ html,
 body {
 	height: 100%;
 	margin: 0;
+	font-family: Consolas, Courier, monospace;
 }
 
 body {
@@ -53,13 +54,12 @@ footer {
 }
 
 
-#contact {
+#credits {
 	background: lightsalmon;
 }
 
 #contact-wrapper {
-	margin: 10px;
-	background: white;
+	/* background: white; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
