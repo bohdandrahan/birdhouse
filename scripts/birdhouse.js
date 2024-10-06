@@ -34,7 +34,7 @@ function setup() {
 
 function draw() {
 
-    orbitControl(3, 3, 1);
+    orbitControl(1, 1, 1);
     background(200)
     //draw_debug()
 
@@ -102,19 +102,36 @@ function draw_front_gable() {
     beginGeometry()
 
     normalMaterial()
-    translate(0, -24, 350 * unit)
-    triangle(-375 * unit, 0, 375 * unit, 0, 0, -375 * unit,)
+    translate(0, -50 * unit, 350 * unit)
+    triangle(375 * unit, 0, -375 * unit, 0, 0, -375 * unit,)
     translate(0, 0, -100 * unit)
 
-    triangle(-375 * unit, 0, 375 * unit, 0, 0, -375 * unit,)
+    triangle(375 * unit, 0, -375 * unit, 0, 0, -375 * unit,)
     translate(0, 0, +100 * unit)
-    translate(0, 24, -350 * unit)
+    translate(0, 50 * unit, -350 * unit)
 
     front_gable = endGeometry()
 
     model(front_gable);
 }
 
+function draw_back_gable() {
+    beginGeometry()
+
+    normalMaterial()
+    console.log(unit)
+    console.log(24 / unit)
+    translate(0, -50 * unit, -350 * unit)
+    triangle(-375 * unit, 0, 375 * unit, 0, 0, -375 * unit,)
+    translate(0, 0, 100 * unit)
+
+    triangle(-375 * unit, 0, 375 * unit, 0, 0, -375 * unit,)
+    translate(0, 0, -100 * unit)
+    translate(0, 50 * unit, +350 * unit)
+
+    front_gable = endGeometry()
+    model(front_gable);
+}
 function draw_hole() {
     translate(0, 0, 301 * unit)
 
@@ -134,21 +151,6 @@ function draw_perch() {
     translate(0, -100, -410 * unit)
 }
 
-function draw_back_gable() {
-    beginGeometry()
-
-    normalMaterial()
-    translate(0, -24, -350 * unit)
-    triangle(-375 * unit, 0, 375 * unit, 0, 0, -375 * unit,)
-    translate(0, 0, 100 * unit)
-
-    triangle(-375 * unit, 0, 375 * unit, 0, 0, -375 * unit,)
-    translate(0, 0, -100 * unit)
-    translate(0, 24, +350 * unit)
-
-    front_gable = endGeometry()
-    model(front_gable);
-}
 
 function draw_debug() {
 
